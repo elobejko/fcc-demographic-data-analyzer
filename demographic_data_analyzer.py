@@ -4,14 +4,15 @@ import pandas as pd
 def calculate_demographic_data(print_data=True):
     # Read data from file
     df = pd.read_csv('adult.data.csv')
-    #print(df.dtypes)
+   # print(df[['age','sex','race']].head(50))
+    #print(df.info)
     # How many of each race are represented in this dataset? This should be a Pandas series with race names as the index labels.
-    race_count = pd.Series(df.set_index('race', inplace = True))
+    race_count = None#pd.Series(df.set_index('race', inplace = True))
    # print(race_count.head())
 
     # What is the average age of men?
-    average_age_men = None #df.mean[df['sex'] == 'Male']
-    #print(average_age_men)
+    average_age_men = df.loc[df['sex'] == 'Male']['age'].mean()
+    print(average_age_men)
 
     # What is the percentage of people who have a Bachelor's degree?
     percentage_bachelors = None
@@ -41,6 +42,9 @@ def calculate_demographic_data(print_data=True):
 
     # Identify the most popular occupation for those who earn >50K in India.
     top_IN_occupation = None
+
+
+    print('*************PRINTING-METHODS*****************')
 
     # DO NOT MODIFY BELOW THIS LINE
 
