@@ -7,6 +7,8 @@ def calculate_demographic_data(print_data=True):
    # print(df[['age','sex','race']].head(50))
     #print(df.info)
     # How many of each race are represented in this dataset? This should be a Pandas series with race names as the index labels.
+    s = df.duplicated(subset=['race']).count()
+    print(s)
     race_count = None#pd.Series(df.set_index('race', inplace = True))
    # print(race_count.head())
 
